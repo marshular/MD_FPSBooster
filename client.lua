@@ -29,6 +29,10 @@ lib.registerMenu({
     end
 end)
 
+function SetFPS(index)
+    TriggerEvent("fpsbooster:client:event", index)
+end
+
 RegisterNetEvent('fpsbooster:client:event', function(data)
     if data.type == "Reset" then
         FPSBoosterUM(true,true,true,true,5.0,5.0,5.0,10.0,10.0,true,false,"Reset")

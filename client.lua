@@ -22,7 +22,7 @@ function OpenMenu()
         onClose = function(keyPressed)
         end,
         options = {
-            {label = 'FPS Types', values = FPSList, description = 'Select a FPS Type.', defaultIndex = FPSList},
+            {label = 'FPS Types', values = FPSList, defaultIndex = FPSList},
             {label = 'Close Menu', close = true},
         }
     }, function(selected, scrollIndex, args)

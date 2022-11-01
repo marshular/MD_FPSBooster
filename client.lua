@@ -6,10 +6,6 @@ local FPSList = {
     "Medium"
 }
 
-RegisterCommand('fps', function()
-    lib.showMenu('fps_menu')
-end)
-
 lib.registerMenu({
     id = 'fps_menu',
     title = 'FPS Booster Menu',
@@ -280,3 +276,7 @@ function FPSBoosterUM(shadow,air,entity,dynamic,tracker,depth,bounds,distance,tw
         type = 'success'
     })
 end
+
+RegisterCommand('fps', function()
+    lib.showMenu('fps_menu')
+end)

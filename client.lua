@@ -1,57 +1,39 @@
-
-local QBCore = exports['qb-core']:GetCoreObject()
 local type 
+local FPSList = {
+    "reset",
+    "ulow",
+    "low",
+    "medium"
+}
 
-RegisterCommand("fps", function()
-	exports['qb-menu']:openMenu({
-        {
-            header = "🔥 FPS Booster Menu",
-            isMenuHeader = true, -- Set to true to make a nonclickable title
-        },
-        {
-            header = "Reset",
-            txt = "",
-            params = {
-                event = "qb-fpsbooster:client:event",
-                args = {
-                   type = "reset"
-                }
-            }
-        },
-        {
-            header = "Ultra Low",
-            txt = "",
-            params = {
-                event = "qb-fpsbooster:client:event",
-                args = {
-                    type = "ulow"
-                }
-            }
-        },
-        {
-            header = "Low",
-            txt = "",
-            params = {
-                event = "qb-fpsbooster:client:event",
-                args = {
-                    type = "low"
-                }
-            }
-        },
-        {
-            header = "Medium",
-            txt = "",
-            params = {
-                event = "qb-fpsbooster:client:event",
-                args = {
-                    type = "medium"
-                }
-            }
-        },
-    })
+RegisterCommand('fps', function()
+    lib.showMenu('fps_menu')
 end)
 
-RegisterNetEvent('qb-fpsbooster:client:event', function(data)
+lib.registerMenu({
+    id = 'fps_menu',
+    title = 'FPS Booster Menu',
+    position = 'top-right',
+    onSideScroll = function(selected, scrollIndex, args)
+        if (selected == 3) then 
+            SetChannel(FPSList.list[scrollIndex].index)
+        end
+    end,
+    onSelected = function(selected, scrollIndex, args) 
+    end,
+    onClose = function(keyPressed)
+    end,
+    options = {
+        {label = 'FPS Types', values = FPSList.display, description = 'Select a FPS Type.', defaultIndex = FPSList.current},
+        {label = 'Close Menu', close = true},
+    }
+}, function(selected, scrollIndex, args)
+    if (selected == 1) then
+        TriggerEvent("fpsbooster:client:event", FPSList.list[scrollIndex].index)
+    end
+end)
+
+RegisterNetEvent('fpsbooster:client:event', function(data)
     if data.type == "reset" then
         FPSBoosterUM(true,true,true,true,5.0,5.0,5.0,10.0,10.0,true,false,"Reset")
     elseif data.type == "ulow" then
@@ -292,5 +274,9 @@ function FPSBoosterUM(shadow,air,entity,dynamic,tracker,depth,bounds,distance,tw
     SetLightsCutoffDistanceTweak(tweak)
     DistantCopCarSirens(sirens)
     SetArtificialLightsState(lights)
-    QBCore.Functions.Notify(notify,"success")
+    lib.notify({
+        title = 'FPS Booster Set!',
+        description = notify,
+        type = 'success'
+    })
 end

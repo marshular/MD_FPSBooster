@@ -13,7 +13,7 @@ function OpenMenu()
         title = 'FPS Booster Menu',
         position = 'top-right',
         onSideScroll = function(selected, scrollIndex, args)
-            if (selected == 3) then 
+            if (selected == 1) then 
                 SetFPS(FPSList.list[scrollIndex].index)
             end
         end,
@@ -22,7 +22,7 @@ function OpenMenu()
         onClose = function(keyPressed)
         end,
         options = {
-            {label = 'FPS Types', values = FPSList.display, description = 'Select a FPS Type.', defaultIndex = FPSList.current},
+            {label = 'FPS Types', description = 'Select a FPS Type.'},
             {label = 'Close Menu', close = true},
         }
     }, function(selected, scrollIndex, args)

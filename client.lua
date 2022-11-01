@@ -286,5 +286,5 @@ function FPSBoosterUM(shadow,air,entity,dynamic,tracker,depth,bounds,distance,tw
 end
 
 RegisterCommand('fps', function()
-    lib.showMenu('fps_menu')
+    OpenMenu()
 end)

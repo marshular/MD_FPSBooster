@@ -1,20 +1,20 @@
 local type 
-local FPSList = {
-    "Reset",
-    "Ultra Low",
-    "Low",
-    "Medium"
-}
 
 function OpenMenu()
     lib.hideMenu()
+    local FPSList = {
+        "Reset",
+        "Ultra Low",
+        "Low",
+        "Medium"
+    }
     lib.registerMenu({
         id = 'fps_menu',
         title = 'FPS Booster Menu',
         position = 'top-right',
         onSideScroll = function(selected, scrollIndex, args)
             if (selected == 3) then 
-                SetChannel(FPSList.list[scrollIndex].index)
+                SetFPS(FPSList.list[scrollIndex].index)
             end
         end,
         onSelected = function(selected, scrollIndex, args) 

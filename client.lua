@@ -6,28 +6,32 @@ local FPSList = {
     "Medium"
 }
 
-lib.registerMenu({
-    id = 'fps_menu',
-    title = 'FPS Booster Menu',
-    position = 'top-right',
-    onSideScroll = function(selected, scrollIndex, args)
-        if (selected == 3) then 
-            SetChannel(FPSList.list[scrollIndex].index)
+function OpenMenu()
+    lib.hideMenu()
+    lib.registerMenu({
+        id = 'fps_menu',
+        title = 'FPS Booster Menu',
+        position = 'top-right',
+        onSideScroll = function(selected, scrollIndex, args)
+            if (selected == 3) then 
+                SetChannel(FPSList.list[scrollIndex].index)
+            end
+        end,
+        onSelected = function(selected, scrollIndex, args) 
+        end,
+        onClose = function(keyPressed)
+        end,
+        options = {
+            {label = 'FPS Types', values = FPSList.display, description = 'Select a FPS Type.', defaultIndex = FPSList.current},
+            {label = 'Close Menu', close = true},
+        }
+    }, function(selected, scrollIndex, args)
+        if (selected == 1) then
+            SetFPS(FPSList.list[scrollIndex].index)
         end
-    end,
-    onSelected = function(selected, scrollIndex, args) 
-    end,
-    onClose = function(keyPressed)
-    end,
-    options = {
-        {label = 'FPS Types', values = FPSList.display, description = 'Select a FPS Type.', defaultIndex = FPSList.current},
-        {label = 'Close Menu', close = true},
-    }
-}, function(selected, scrollIndex, args)
-    if (selected == 1) then
-        TriggerEvent("fpsbooster:client:event", FPSList.list[scrollIndex].index)
-    end
-end)
+    end)
+    lib.showMenu('fps_menu')
+end
 
 function SetFPS(index)
     TriggerEvent("fpsbooster:client:event", index)

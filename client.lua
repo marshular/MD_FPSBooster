@@ -15,7 +15,7 @@ function OpenMenu()
         onSideScroll = function(selected, scrollIndex, args)
             if (selected == 1) then 
                 --TriggerEvent("fpsbooster:client:event", args)
-                print(args)
+                print(index)
             end
         end,
         onSelected = function(selected, scrollIndex, args) 
@@ -29,7 +29,7 @@ function OpenMenu()
     }, function(selected, scrollIndex, args)
         if (selected == 1) then
             --TriggerEvent("fpsbooster:client:event", args)
-            print(args)
+            print(index)
         end
     end)
     lib.showMenu('fps_menu')

@@ -34,30 +34,58 @@ function OpenMenu()
         if (selected == 1) then
             TriggerEvent("fpsbooster:client:event", "Reset")
             lib.notify({
+                id = 'reset',
                 title = 'FPS Booster Set!',
-                description = notify,
-                type = 'success'
+                description = 'FPS reset.',
+                position = 'top-left',
+                style = {
+                    backgroundColor = '#27ae60',
+                    color = '#ffffff'
+                },
+                icon = 'circle-check',
+                iconColor = '#ffffff'
             })
         elseif (selected == 2) then
             TriggerEvent("fpsbooster:client:event", "Ultra Low")
             lib.notify({
+                id = 'ulow',
                 title = 'FPS Booster Set!',
-                description = notify,
-                type = 'success'
+                description = 'FPS set to Ultra Low.',
+                position = 'top-left',
+                style = {
+                    backgroundColor = '#27ae60',
+                    color = '#ffffff'
+                },
+                icon = 'circle-check',
+                iconColor = '#ffffff'
             })
         elseif (selected == 3) then
             TriggerEvent("fpsbooster:client:event", "Low")
             lib.notify({
+                id = 'low',
                 title = 'FPS Booster Set!',
-                description = notify,
-                type = 'success'
+                description = 'FPS set to Low.',
+                position = 'top-left',
+                style = {
+                    backgroundColor = '#27ae60',
+                    color = '#ffffff'
+                },
+                icon = 'circle-check',
+                iconColor = '#ffffff'
             })
         elseif (selected == 4) then
             TriggerEvent("fpsbooster:client:event", "Medium")
             lib.notify({
+                id = 'medium',
                 title = 'FPS Booster Set!',
-                description = notify,
-                type = 'success'
+                description = 'FPS set to Medium.',
+                position = 'top-left',
+                style = {
+                    backgroundColor = '#27ae60',
+                    color = '#ffffff'
+                },
+                icon = 'circle-check',
+                iconColor = '#ffffff'
             })
         end
     end)

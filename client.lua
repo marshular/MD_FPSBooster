@@ -14,7 +14,7 @@ function OpenMenu()
         position = 'top-right',
         onSideScroll = function(selected, scrollIndex, args)
             if (selected == 1) then 
-                SetFPS(scrollIndex)
+                SetFPS(selected)
             end
         end,
         onSelected = function(selected, scrollIndex, args) 
@@ -27,7 +27,7 @@ function OpenMenu()
         }
     }, function(selected, scrollIndex, args)
         if (selected == 1) then
-            SetFPS(scrollIndex)
+            SetFPS(selected)
         end
     end)
     lib.showMenu('fps_menu')

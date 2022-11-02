@@ -37,17 +37,17 @@ function SetFPS(index)
     TriggerEvent("fpsbooster:client:event", index)
 end
 
-RegisterNetEvent('fpsbooster:client:event', function(data)
-    if data.type == "Reset" then
+RegisterNetEvent('fpsbooster:client:event', function(index)
+    if index.type == "Reset" then
         FPSBoosterUM(true,true,true,true,5.0,5.0,5.0,10.0,10.0,true,false,"Reset")
-    elseif data.type == "Ultra Low" then
+    elseif index.type == "Ultra Low" then
         FPSBoosterUM(false,false,true,false,0.0,0.0,0.0,0.0,0.0,false,nil,"Ultralow")
-    elseif data.type == "Low" then
+    elseif index.type == "Low" then
         FPSBoosterUM(false,false,true,false,0.0,0.0,0.0,5.0,5.0,false,nil,"Low")
-    elseif data.type == "Medium" then
+    elseif index.type == "Medium" then
         FPSBoosterUM(true,false,true,false,5.0,3.0,3.0,3.0,3.0,false,false,"Medium")
     end
-    type = data.type
+    type = index.type
 end)
 
 -- // Distance rendering and entity handler (need a revision)

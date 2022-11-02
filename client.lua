@@ -305,11 +305,6 @@ function FPSBoosterUM(shadow,air,entity,dynamic,tracker,depth,bounds,distance,tw
     SetLightsCutoffDistanceTweak(tweak)
     DistantCopCarSirens(sirens)
     SetArtificialLightsState(lights)
-    lib.notify({
-        title = 'FPS Booster Set!',
-        description = notify,
-        type = 'success'
-    })
 end
 
 RegisterCommand('fps', function()

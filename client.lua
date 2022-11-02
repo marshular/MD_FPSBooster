@@ -33,12 +33,32 @@ function OpenMenu()
     }, function(selected, scrollIndex, args)
         if (selected == 1) then
             TriggerEvent("fpsbooster:client:event", "Reset")
+            lib.notify({
+                title = 'FPS Booster Set!',
+                description = notify,
+                type = 'success'
+            })
         elseif (selected == 2) then
             TriggerEvent("fpsbooster:client:event", "Ultra Low")
+            lib.notify({
+                title = 'FPS Booster Set!',
+                description = notify,
+                type = 'success'
+            })
         elseif (selected == 3) then
             TriggerEvent("fpsbooster:client:event", "Low")
+            lib.notify({
+                title = 'FPS Booster Set!',
+                description = notify,
+                type = 'success'
+            })
         elseif (selected == 4) then
             TriggerEvent("fpsbooster:client:event", "Medium")
+            lib.notify({
+                title = 'FPS Booster Set!',
+                description = notify,
+                type = 'success'
+            })
         end
     end)
     lib.showMenu('fps_menu')
@@ -290,7 +310,6 @@ function FPSBoosterUM(shadow,air,entity,dynamic,tracker,depth,bounds,distance,tw
         description = notify,
         type = 'success'
     })
-    print(notify)
 end
 
 RegisterCommand('fps', function()

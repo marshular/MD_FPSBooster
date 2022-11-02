@@ -2,34 +2,43 @@ local type
 
 function OpenMenu()
     lib.hideMenu()
-    local FPSList = {
-        "Reset",
-        "Ultra Low",
-        "Low",
-        "Medium"
-    }
+--     local FPSList = {
+--         "Reset",
+--         "Ultra Low",
+--         "Low",
+--         "Medium"
+--     }
     lib.registerMenu({
         id = 'fps_menu',
         title = 'FPS Booster Menu',
         position = 'top-right',
         onSideScroll = function(selected, scrollIndex, args)
-            if (selected == 1) then 
-                --TriggerEvent("fpsbooster:client:event", args)
-                print(index)
-            end
+--             if (selected == 1) then 
+--                 --TriggerEvent("fpsbooster:client:event", args)
+--                 print(index)
+--             end
         end,
         onSelected = function(selected, scrollIndex, args) 
         end,
         onClose = function(keyPressed)
         end,
         options = {
-            {label = 'FPS Types', values = FPSList, description = 'Set your FPS.', defaultIndex = 4},
+            --{label = 'FPS Types', values = FPSList, description = 'Set your FPS.', defaultIndex = 1},
+            {label = 'Reset', description = 'Reset FPS.'},
+            {label = 'Ultra Low', description = 'Set FPS to Ultra Low.'},
+            {label = 'Low', description = 'Set FPS to Low.'},
+            {label = 'Medium', description = 'Set FPS to Medium.'},
             {label = 'Close Menu', close = true},
         }
     }, function(selected, scrollIndex, args)
         if (selected == 1) then
-            --TriggerEvent("fpsbooster:client:event", args)
-            print(index)
+            TriggerEvent("fpsbooster:client:event", "Reset")
+        elseif (selected == 2) then
+            TriggerEvent("fpsbooster:client:event", "Ultra Low")
+        elseif (selected == 3) then
+            TriggerEvent("fpsbooster:client:event", "Low")
+        elseif (selected == 4) then
+            TriggerEvent("fpsbooster:client:event", "Medium")
         end
     end)
     lib.showMenu('fps_menu')

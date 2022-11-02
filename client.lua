@@ -14,7 +14,8 @@ function OpenMenu()
         position = 'top-right',
         onSideScroll = function(selected, scrollIndex, args)
             if (selected == 1) then 
-                TriggerEvent("fpsbooster:client:event", args[type])
+                --TriggerEvent("fpsbooster:client:event", args)
+                print(args)
             end
         end,
         onSelected = function(selected, scrollIndex, args) 
@@ -27,23 +28,24 @@ function OpenMenu()
         }
     }, function(selected, scrollIndex, args)
         if (selected == 1) then
-            TriggerEvent("fpsbooster:client:event", args[type])
+            --TriggerEvent("fpsbooster:client:event", args)
+            print(args)
         end
     end)
     lib.showMenu('fps_menu')
 end
 
-RegisterNetEvent('fpsbooster:client:event', function(args)
-    if args.type == "Reset" then
+RegisterNetEvent('fpsbooster:client:event', function(data)
+    if data.type == "Reset" then
         FPSBoosterUM(true,true,true,true,5.0,5.0,5.0,10.0,10.0,true,false,"Reset")
-    elseif args.type == "Ultra Low" then
+    elseif data.type == "Ultra Low" then
         FPSBoosterUM(false,false,true,false,0.0,0.0,0.0,0.0,0.0,false,nil,"Ultralow")
-    elseif args.type == "Low" then
+    elseif data.type == "Low" then
         FPSBoosterUM(false,false,true,false,0.0,0.0,0.0,5.0,5.0,false,nil,"Low")
-    elseif args.type == "Medium" then
+    elseif data.type == "Medium" then
         FPSBoosterUM(true,false,true,false,5.0,3.0,3.0,3.0,3.0,false,false,"Medium")
     end
-    type = args.type
+    type = data.type
 end)
 
 -- // Distance rendering and entity handler (need a revision)

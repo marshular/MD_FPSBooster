@@ -290,6 +290,7 @@ function FPSBoosterUM(shadow,air,entity,dynamic,tracker,depth,bounds,distance,tw
         description = notify,
         type = 'success'
     })
+    print(notify)
 end
 
 RegisterCommand('fps', function()

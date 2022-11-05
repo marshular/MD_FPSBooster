@@ -1,5 +1,4 @@
 # MD_FPSBooster
-**PLEASE NOTE THIS HAS NOT BEEN TESTED! IF YOU HAVE ANY ISSUES JOIN: https://discord.gg/eNrZ3CNau2**
 + **You can use command /fps to open the menu
 the script have 3 type of settings: Ultra low, Low, Medium**
 
